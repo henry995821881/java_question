@@ -1,0 +1,877 @@
+今天给大家看一套我最近做的一套关于Struts2的题：
+
+1．以下关于jQuery说法错误的选项是（ D　）。
+
+　　A．“$”为jQuery脚本库的默认全局变量名，即“$” = “jQuery”  
+
+　　B．$.ajax( )方法是jQuery提供的最底层的Ajax方法，其它如“$.get( )、$.post( )、$.getJSON( )”等都是在其基础上的再次封装
+
+　　C．$.ajax( )方法具有较强的灵活性，通过设置“type”属性可以指定请求方式，设置“dataType”属性可以指定服务器端返回的数据类型
+
+　　D．$.parseJSON( )方法用来返回JSON格式的数据，通常需要与$.getJSON( )方法联合使用
+
+　　解析：$.parseJSON是用来解析JSON格式的，而不是返回
+
+ 
+
+ 
+
+2． 下列选项中关于XMLHttpRequest对象的说法错误的是（ BC　）。（选两项）
+
+ 
+
+　　A．XMLHttpRequest对象是Ajax技术的核心，它的作用是可以发送异步请求到服务器端
+
+ 
+
+　　B．status属性的作用可以返回当前请求的就绪状态，其常用值为：0、1、2、3、4
+
+　　解析：readyState的的常用值是0、1、2、3、4，而不是struts属性
+
+ 
+
+　　C．readyState属性的作用可以返回当前请求的HTTP状态码，其常用值404表示找不到访问对象
+
+　　　　readyState的作用可以返回当前请求的就绪状态，而不是HTTP
+
+ 
+
+　　D．当就绪状态是4且状态码是200时，方可处理服务器数据
+
+ 
+
+ 
+
+ 
+
+3．以下选项中关于jQuery插件说法错误的是（ D　）。
+
+ 
+
+A．jQuery插件是指基于jQuery脚本库开发出来的扩充函数库
+
+ 
+
+B．jQuery的官方插件叫做jQuery UI
+
+ 
+
+C．所有jQuery插件都必须依赖于jQuery基础脚本库
+
+ 
+
+D．要想使用lazyload插件除了需要导入jQuery基础脚本库外，还需要导入jQuery UI插件库
+
+　　lazyload属于第三方，跟jQueryUI是无关的，需要单独引用lazyload
+
+ 
+
+ 
+
+ 
+
+4．在使用jQuery插件的应用中，以下选项中可以实现构建列表展示数据的插件是（ D　）。
+
+ 
+
+　　A．autocomplete插件  在用户输入时自动提示
+
+ 
+
+　　B．tree插件  树形菜单
+
+ 
+
+　　C．grid插件  列表插件
+
+ 
+
+　　D．datagrid插件列表  展示数据
+
+ 
+
+ 
+
+ 
+
+5．在使用Struts 2的应用中，实现服务器端返回Ajax数据的错误选项是（ BD　）（选两项）
+
+ 
+
+　　A．指定Struts 2原有的stream类型结果集
+
+ 
+
+　　B．指定Struts 2原有的redirect类型结果集
+
+ 
+
+ 
+
+　　C．使用第三方jar包，实现Struts 2的json类型结果集
+
+ 
+
+　　D．使用Struts 2原有的despatcher类型结果集
+
+　　　　
+
+ 
+
+ 
+
+ 
+
+6．关于使用JSON类型的Result返回easy UI的datagrid列表数据说法错误的是（ D　）
+
+ 
+
+　　A．需要添加第三方jar包struts2-json-plugin-xxx.jar
+
+ 
+
+　　B．需要指定package继承json-default
+
+ 
+
+　　C．可以使用<param>标签的root参数指定返回的结果对象为根对象
+
+ 
+
+　　D． <result>的type属性可以不指定　　
+
+ 
+
+ 　　　　只要使用datagrid列表显示数据，就得使用JSON，所以type属性必须指定
+
+ 
+
+ 
+
+ 
+
+7．在Struts 2框架中访问Servlet API对象描述错误的是（ AB　）
+
+ 
+
+　　A．ServletActionContext和ActionContext都有getRequest()方法，都返回HttpServletRequest对象
+
+　　　　ServletActionContext没有getRequest（）方法
+
+ 
+
+　　B．ServletActionContext和ActionContext访问Servlet API时，都无需直接调用原始Servlet API
+
+　　　　ServletActionContext会调用原始Servlet API
+
+ 
+
+　　C．Action可以实现特定的接口，由Struts 2框架向Action注入Servlet API对象，这种编程思想称为IoC
+
+ 
+
+　　D．ActionContext类没有封装所有Servlet API的访问方法，所以有时也需要使用ServletActionContext
+
+ 
+
+ 
+
+ 
+
+8．下列选项中，说法错误的是（ C　）
+
+ 
+
+　　A．一个Interceptor处理请求后，可以调用下一个Interceptor继续处理请求
+
+ 
+
+　　B．StrutsPrepareAndExecuteFilter是一个过滤器，它是Struts 2处理请求的入口
+
+ 
+
+　　C．JSP结果页面运行在Action之前
+
+ 
+
+ 
+
+　　D．Struts 2框架运行在Web服务器中，如果没有Web服务器，就无法配置并运行Struts 2
+
+ 
+
+ 
+
+ 
+
+9．在struts.xml配置文件中有如下代码：
+
+<action name="userAction" class="cn.jbit.action.UserAction" method="login">    
+
+<result type="redirectAction">${nextAction}</result>    
+
+<result name="error">/page/error.jsp</result></action>则下列说法不正确的是（ D　）
+
+ 
+
+　　A．redirectAction类型可以将请求重定向到Action类
+
+ 
+
+　　B．${nextAction}用来获取UserAction类中nextAction属性的值
+
+ 
+
+　　C．UserAction类一定要提供nextAction的getter方法
+
+ 
+
+　　D．${nextAction}配置是错误的，不能使用EL表达式确定转发的Action
+
+　　　可以使用EL表达式
+
+ 
+
+ 
+
+ 
+
+10．下列自定义拦截器代码语法正确的是（ BD　）
+
+ 
+
+　　A．public class MyInterceptor implements Interceptor {   public String intercept(ActionInvocation invocation) throws Exception { … }    }
+
+　　　　实现接口必须重写其方法，这里只重写了一个方法
+
+ 
+
+　　B．public class MyInterceptor extends AbstractInterceptor {   public String intercept(ActionInvocation invocation) throws Exception { … }    }
+
+ 
+
+　　C．public class MyInterceptor implements Interceptor {   public void init() { … }   public String intercept(ActionInvocation invocation) throws Exception { … }    }
+
+　　　　跟选项A一样
+
+ 
+
+　　D．public class MyInterceptor extends AbstractInterceptor {   public void init() { … }   public String intercept(ActionInvocation invocation) throws Exception { … }    }
+
+ 
+
+ 
+
+ 
+
+ 
+
+11．在Struts 2的应用中，要请求一个资源，其URL为:http://…/myaction/dologin.action，并且要访问其Action中的login()方法，下面选项对其配置不正确的是（ AD   ）。
+
+ 
+
+　　A．<struts>      
+
+　　　　<package name="default" namespace="/myaction" extends="struts-default"> 
+
+　　        <action name="dologin!login" class="……"> 
+
+　　　　　　           ……         
+
+　　　　  </action>      
+
+　　　　  </package>   
+
+　　　　</struts> 
+
+ 
+
+　　B．<struts>
+
+　　       <package name="default" namespace="/myaction" extends="struts-default">
+
+　　            <action name="dologin" class="……" method="login"> 
+
+　　　　　　　　　　     ……    
+
+　　　　　　</action>
+
+　　　　 </package>    
+
+　　　　</struts> 
+
+ 
+
+　　C．<struts>
+
+　　　　   <package name="default" namespace="/myaction" extends="struts-default">
+
+　　　　　　     <action name="do*" class="……" method="{1}"> 
+
+　　　　　　　　　　　　     ……    
+
+　　　　　　　　 </action>
+
+　　　　   </package> 
+
+　　     </struts> 
+
+ 
+
+　　D．<struts>　　
+
+　　　　   <package name="default"  namespace="/myaction" extends="struts-default">
+
+　　　　　　     <action name=" dologin" class="……" > 
+
+　　　　　　　　　　     ……    
+
+　　　　　　　　</action>  
+
+　　　　　</package>
+
+　　　   </struts>
+
+ 
+
+ 
+
+ 
+
+12．以下关于Struts 2的标签说法错误的是（ AD　）
+
+ 
+
+A．<s:date>用于格式化输出一个日期，它的format属性用于指定日期显示的格式，如：yyyy-mm-dd HH24:mi:ss，表示格式为：“年-月-日 时:分:秒”
+
+ 
+
+B．Struts 2标签比JSTL标签功能更强大，数量也更多
+
+ 
+
+C．<s:property value="username"/>的作用是在页面中访问Action中的getUsername()方法，并显示返回值
+
+ 
+
+D．<s:textarea>可以在页面上生成一个<input type="text" />标签
+
+ 
+
+ 
+
+ 
+
+13． 以下关于OGNL和ValueStack描述错误的是（ CD　）
+
+ 
+
+A．由于值栈存储在request中，所以值栈和request作用域的生命周期是相同的
+
+ 
+
+B．使用OGNL访问对象属性时，会按照从顶部到底部的顺序查找
+
+ 
+
+C．当ValueStack中存放多个对象时，下面对象的属性会覆盖上面对象中的同名属性
+
+ 
+
+D．Struts 2会将Action的实例保存在Stack Context中而非ValueStack中
+
+ 
+
+ 
+
+ 
+
+14．下列选项对于MVC的优缺点，说法错误的是（ D　）
+
+ 
+
+A．MVC的优点之一是模型、视图和控制器各司其职、互不干涉
+
+ 
+
+B．MVC的优点之二是由于按层把系统分开，因而可以更好地实现开发中的分工
+
+ 
+
+C．MVC的优点之三是允许使用各种不同样式的视图来访问同一个服务器端的代码，因此有利于组件的重用
+
+ 
+
+D．MVC的优点之四是使应用程序结构变得灵活，各层之间都可以直接相互访问，因此能提交开发效率
+
+ 
+
+ 
+
+ 
+
+15．在Struts 2应用中，能正确处理中文乱码问题的设置是（ A　）
+
+ 
+
+A．<constant name="struts.i18n.encoding" value="UTF-8">
+
+ 
+
+B．<constant name=" struts.custom.i18.encoding" value="UTF-8"> 
+
+ 
+
+C．<constant name="struts.custom.i18.resources" value="UTF-8">
+
+ 
+
+D．<constant name="struts.ui.theme" value="UTF-8">
+
+ 
+
+ 
+
+ 
+
+16．下面是Struts 2的StudentAction类的部分代码：
+
+ 
+
+public class StudentAction extends ActionSupport {
+
+ 
+
+private List<Student> students = new ArrayList<Student>();
+
+ 
+
+    //省略了getter、setter等其他代码
+
+ 
+
+}
+
+ 
+
+已知students中保存了多个Student对象，下面代码能访问到students中第一个Student对象的name属性值的是（ AD ）。
+
+ 
+
+A．<s:property value="students[0].name"/>
+
+ 
+
+B．<s:property value="#Student.getName()"/>
+
+ 
+
+C．<s:property value="#students[0].name"/>
+
+ 
+
+D．<s:property value="students.get(0).name"/>
+
+ 
+
+ 
+
+ 
+
+17．下列关于在Struts 2中访问Servlet API的说法错误的是（ B　）
+
+ 
+
+A．ActionContext是以解耦合方式访问Servlet API
+
+ 
+
+B．ServletActionContext和ActionContext都有getSession()方法，都返回Map对象
+
+ 
+
+C．ActionContext类只封装部分Servlet API，有些功能需要原始的Servlet API才能实现，这种情况就需要使用ServletActionContext类
+
+ 
+
+D．Action可以实现特定的接口，由Struts 2框架向Action注入Servlet API对象
+
+ 
+
+ 
+
+ 
+
+18．假设在Struts 2的struts.xml中有如下拦截器配置：
+
+ 
+
+<interceptors>
+
+ 
+
+<interceptor name="lgIntcpt" class="intceps.LoginInterceptor"/>
+
+ 
+
+<interceptor-stack name="myStack">
+
+ 
+
+<interceptor-ref name=" lgIntcpt "/>
+
+ 
+
+</interceptor-stack>
+
+ 
+
+</interceptors>
+
+ 
+
+<default-interceptor-ref name="myStack"/>
+
+ 
+
+下列说法不正确的是（ B　）
+
+ 
+
+A．该拦截器执行时，不会调用Struts2中的默认拦截器栈defaultStack
+
+ 
+
+B．拦截器栈myStack的定义有误，应该使用<interceptor-stacks>标签
+
+ 
+
+C．<default-interceptor-ref>标签用来定义默认拦截器或拦截器栈的引用
+
+ 
+
+D．<interceptor-stack>标签中可以定义多个拦截器的引用
+
+ 
+
+ 
+
+ 
+
+19．为了实现图片的下载，配置struts.xml文件时能够填写在横线处的代码是（ B　）
+
+ 
+
+ 
+
+ 
+
+<action name="download" class="cn.jbit.houserent.action.FileDownAction">
+
+ 
+
+<result name="success" type="stream">
+
+ 
+
+   <param name="contentType">______________</param>
+
+ 
+
+   <param name="inputName">inputStream</param>
+
+ 
+
+   <param name="contentDisposition">
+
+ 
+
+attachment;filename="${fileName}"
+
+ 
+
+</param>
+
+ 
+
+   <param name="bufferSize">4096</param>
+
+ 
+
+</result>
+
+ 
+
+</action>
+
+ 
+
+A．text/plain
+
+ 
+
+B．image/gif 
+
+ 
+
+C．octet-stream
+
+ 
+
+D．application/msword
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+20．下列选项中不属于Struts 2框架配置文件的是（ D　）
+
+ 
+
+ 
+
+ 
+
+A．struts.xml
+
+ 
+
+B．struts-default.xml
+
+ 
+
+C．struts-plugin.xml
+
+ 
+
+D．struts-web.xml
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+21．下列选项中，通配符使用正确的选项是（ C　）
+
+ 
+
+ 
+
+ 
+
+A．<action name="?Action" class="cn.jbit.houserent.action.Login" method="{?}">
+
+ 
+
+        <result name="success">/page/{?}_success.jsp</result>
+
+ 
+
+        <result name="input">/page/{?}_input.jsp</result>
+
+ 
+
+    </action>  
+
+ 
+
+B．<action name="*Action" class="cn.jbit.houserent.action.Login" method="{*}">
+
+ 
+
+        <result name="success">/page/{*}_success.jsp</result>
+
+ 
+
+        <result name="input">/page/{*}_input.jsp</result>
+
+ 
+
+   </action>  
+
+ 
+
+C．<action name="*Action" class="cn.jbit.houserent.action.Login" method="{1}">
+
+ 
+
+        <result name="success">/page/{1}_success.jsp</result>
+
+ 
+
+        <result name="input">/page/{1}_input.jsp</result>
+
+ 
+
+   </action>  
+
+ 
+
+D．<action name="*Action" class="cn.jbit.houserent.action.Login" method="{0}">
+
+ 
+
+        <result name="success">/page/{0}_success.jsp</result>
+
+ 
+
+        <result name="input">/page/{0}_input.jsp</result>
+
+ 
+
+    </action>  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+22．在Struts 2的Action中实现用户权限控制时，需要使用seesion保存用户信息，下面获取session语法正确的是（ C　）
+
+ 
+
+ 
+
+ 
+
+A．Session session=request.getSession();
+
+ 
+
+B．Session session= ActionContext.getSession();
+
+ 
+
+C．Map session= ActionContext. getContext().getSession();
+
+ 
+
+D．Map session= ServletContext. getContext().getSession();
+
+ 
+
+ 
+
+ 
+
+23．在页面中使用Struts 2的URL标签构建一个URL，则能够正确构建超链接的选项是（　　C　　）
+
+ 
+
+ 
+
+ 
+
+<s:url id="first" value="http://www.sohu.com"></s:url>
+
+ 
+
+ 
+
+ 
+
+A．<s:a href="first">搜狐</s:a>
+
+ 
+
+B．<s:a href="#first">搜狐</s:a>
+
+ 
+
+C．<s:a href="%{first}">搜狐</s:a>
+
+ 
+
+D．<s:a href="%{#first}">搜狐</s:a>
+
+ 
+
+ 
+
+ 
+
+24．在Struts 2中实现文件下载时，对于stream结果类型的contentDisposition参数的描述错误的是（ C　）
+
+ 
+
+A．contentDisposition参数设置响应的HTTP头信息中的Content-Disposition参数的值
+
+ 
+
+B．contentDisposition参数有两部分组成，设置文件的下载处理方式和设置下载文件显示的文件名
+
+ 
+
+C．contentDisposition参数用于设置下载文件的类型
+
+ 
+
+D．contentDisposition参数的设置必须在stream结果类型中完成
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+25．执行<s:set name="list" value="{'北京','天津','上海','重庆'}"/>后，可以正确遍历该列表的选项是（ BD　）
+
+ 
+
+A．<s:property value="list"/>        
+
+ 
+
+B．<s:iterator value="#list">
+
+ 
+
+      <s:property/>
+
+ 
+
+</s:iterator>
+
+ 
+
+C．<s:iterator value="${list}">
+
+ 
+
+     <s:property/>
+
+ 
+
+</s:iterator>
+
+ 
+
+D．<s:iterator value="%{#list}">
+
+ 
+
+      <s:property/>
+
+ 
+
+</s:iterator>

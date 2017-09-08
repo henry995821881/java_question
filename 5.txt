@@ -1,0 +1,904 @@
+属性）
+
+  JSP：getProperty （获得JavaBean的属性）
+
+  JSP：plugin         （根据浏览器类型为Java插件生成object或者embed两种标记）
+
+ 
+
+10、JSP常用指令有哪些？
+
+答：page、include、taglib
+
+a、page指令：定义页面的一些属性，常用属性：
+
+contentType="text/html;charset=utf-8";    向浏览器端输出数据的编码
+
+pageEncoding="utf-8";                            JSP编译成java文件时所用的编码
+
+session="true"                                        是否自动创建session
+
+b、include指令：引入一个静态的JSP页面
+
+c、taglib指令：引入一个标签库
+
+ 
+
+11、JSP中动态include和静态include的区别？
+
+答 ： a、静态include：语法：<%@ include file="文件名" %>，相当于复制，编辑时将对应的文件包含进来，当内容变化时，不会再一次对其编译，不易维护。
+
+        b、动态include：语法：<jsp:include page="文件名">,能够自动检查被包含文件，当客户端对JSP文件进行请求时，会重新将对应的文件包含进来，进行实时的更新。
+
+ 
+
+12、页面间对象传递的方法？
+
+答：request、session、application、cookie等。
+
+ 
+
+13、JSP和Servlet有哪些相同点和不同点，他们之间的联系是什么？
+
+答：JSP是Servlet的扩展，本质上是Servlet的简易方式，更强调应用的外表表达。JSP编译后是"类Servlet"。Servlet和JSP最主要的不同点在于，Servlet的应用逻辑是在java文件中，并且完全从表示层中的HTML里分离开来。而JSP的情况是java和HTML可以组合成一个扩展名为.jsp的文件。JSP偏重于视图，Servlet偏重于业务逻辑。
+
+ 
+
+14、 详细描述MVC。
+
+答：基于java的web应用系统采用MVC设计模型，即用Model（模型）、View（视图）和Controller（控制）分离设计，这是目前web应用服务系统的主流设置方向。
+
+      Model：处理业务逻辑的模块。
+
+      View：负责页面显示，显示Model的处理结果给用户，主要实现数据到页面的转换过程。
+
+      Controller：负责每个请求的分发，把Form数据传递给Model进行处理，处理完成后，把处理结果返回给相应的View显示给用户。
+
+ 
+
+15、MVC各个部分都有哪些技术实现？如何实现？
+
+答：MVC是Model-View-Controller的简写。Model代表应用的业务逻辑（通过JavaBean、EJB组件实现），View是引用的表示面（由JSP产生），Controller是提供应用的处理过程机制
+
+（一般是一个Servelt），通过这种设计模型把应用逻辑、处理过程和显示逻辑分成不同的组件来实现。这些组件可以交互和重用。
+
+ 
+
+16、我们在web应用开发过程中经常遇到输出某种编码的字符，如iso-8859-1等，如何输出一个某种编码的字符串？
+
+答：下面这个例子是将iso-8859-1转换成utf-8编码方式。
+
+复制代码
+public String Translate(String str)
+{
+   String s="";
+   try{
+         s=new String(str.getBytes("iso-8859-1"),"UTF-8");
+         s=str.trim();
+   }catch(Exception e){
+        System.err.println(e.getMessage());
+    }
+   return s;
+}
+复制代码
+ 
+
+17、get和post的区别？
+
+a、get是用来从服务器上获取数据，而post是用来向服务器传递数据；
+
+b、get将表单中数据按照variable=value的形式，添加到action所指向的URL后面，并且两者用"？"连接，变量之间用"&"连接；
+
+而post是将表单中的数据放在form的数据体中，按照变量与值对应的方式，传递到action所指定的URL。
+
+c、get是不安全的，因为在传输过程中，数据是被放在请求的URL中;而post的所有操作对用户来说都是不可见的。
+
+d、get传输的数据量小，这主要应为受url长度限制;而post可以传输大量的数据，所有上传文件只能用post提交。
+
+e、get限制form表单的数据集必须为ASCII字符；而post支持整个IS01 0646字符集。
+
+f、get是form表单的默认方法。
+
+ 
+
+18、javascript常用的方面？
+
+答：数据校验、页面特殊效果等。
+
+ 
+
+19、常用的web容器和开发工具？
+
+答：容器：Tomcat、Weblogic
+
+     工具：Eclipse、Jbuilder
+
+ 
+
+20、JSP的四种范围？
+
+答：a、page是代表一个页面相关的对象和属性。一个页面由一个编译好的java servlet类（可以带有include指令，但不可以带有include动作）表示。这既包括servlet又包括编译成servlet的jsp页面。
+
+      b、request是代表与web客户机发出的一个请求相关的对象和属性。一个请求可能跨越多个页面，涉及多个web组件（由于forware指令和include动作的关系）
+
+      c、session是代表与用于某个web客户机的一个用户体验相关的对象和属性。一个web回话也可以经常跨域多个客户机请求。
+
+      d、application是代表与整个web应用程序相关的对象和属性。这实质上是跨域整个web应用程序，包括多个页面、请求和回话的一个全局作用域。
+
+ 
+
+21、应用服务器有哪些？
+
+答：BEA Weblogic Server、IBM WebSphere Application Server、Oracle9i Application Server、JBoss、Tomcat。
+
+ 
+
+22、几种回话跟踪技术？
+
+答：cookie、url重写、hidden表单隐藏域、session
+
+ 
+
+23、Servlet执行时一般实现哪几个方法？
+
+答：
+
+复制代码
+public void init(ServletConfig config){}
+
+public ServletConfig getServeltConfig(){}
+
+public String ServletInfo(){}
+
+public void service(HttpServletRequest request,HttpServletResponse response){} 
+
+public void destroy(){}
+复制代码
+ 
+
+24、简述HttpSession的作用、使用方法，可用代码说明。
+
+答：HttpSession中可以跟踪并存储用户信息，把值设置到属性中，有两个方法：setAttribute("变量/对象","变量/对象");getAttribute("变量/对象");例如：在一个方法中用session.setAttribute("username",username);在session中设置一个属性名为username的变量或者对象，然后可以在同一个session范围内使用session.getAttribute("username"); 来得到username属性或者对象。
+
+ 
+
+25、J2EE是什么？
+
+答：J2EE现在叫做Java EE：是（Java platform,Enterprice Edition 企业版）的简称。企业版本开发和部署服务器应用程序。
+
+      J2EE是Sun公司提出的多层（multi-tiered）、分布式（distributed）、基于组件（component-base）的企业级应用模型（Enterprice Application Model）。
+
+      在这样一个应用系统中，可按照功能划分不同的组件，这些组件又可在不同的计算机上，并且处理不同的层次（tier）中。所属层次包括客户层（client tier）、web层和组件、business层和组件、企业信息系统（EIS）层。
+
+ 
+
+26、J2EE是技术、平台还是框架？
+
+答：J2EE本身是一个标准，一个为企业分布式应用的开发提供的标准平台。
+
+     J2EE也是一个框架，包括JDBC、JNDI、RMI、JMS、EJB、JTA等技术。
+
+ 
+
+27、cookie和session的作用、区别、应用范围。
+
+答：a、cookie数据保存在客户端，session数据保存在服务端。
+
+     b、cookie不是很安全，别人可以分析存放在本地的cookie并进行cookie欺骗，相当重要的数据，应该使用session保存到服务端。
+
+     c、session会在一定时间内保持在服务器上，但是会占用内存资源，当访问的用户过多，会加重服务器的负载，考虑到减轻服务器的压力，可以将不重要的数据放在cookie中持久的保存。
+
+     d、单个cookie保存的数据不能超过4k，很多浏览器都限制站点最多保存20个cookie。
+
+ 
+
+28、JSTL是什么？优点有哪些？
+
+答：JSTL（JSP Standard Tag Library，JSP标准标签库）是一个不断完善的开放源代码的JSP标签库，由四个定制标记库（core、format、xml、sql）和一对通用标记库验证器（ScriptFreeTLV和PermittedTaglibsTLV）组成。优点有：
+
+a、在应用程序服务器之间提供了一致的接口，最大程度的提高了web应用在各应用服务器之间的移植。
+
+b、简化了JSP和web应用程序的开发。
+
+c、以一种统一的方式减少了JSP中scriptlet代码数据，可以达到没有任何scriptlet代码的代码。在我们公司的项目中是不允许任何scriptlet出现在JSP中。
+
+d、允许JSP设计工具与web应用程序开发的进一步集成。相信不久就会有支持JSTL的IDE开发工具出现。
+
+ 
+
+29、J2EE的优越性主要表现在那些方面？
+
+答：a、J2EE基于Java技术，与平台无关。
+
+      b、J2EE提供了一个优秀的企业级应用程序框架，对快速高质量的开发系统打下了基础。
+
+      c、J2EE提供相当专业的通用软件服务。
+
+     d、J2EE拥有开放标准，许多大型公司实现了该规范支持的应用服务器。如：BEA、IBM、Oracle等。
+
+ 
+
+30、JSP页面是如何被执行的？JSP执行效率比Servlet低吗？
+
+答：当客户端向一个JSP页面发出请求时，Web Container将JSP转换成Servlet的源代码（只是第一次请求时），然后编译转化后的Servlet并加载到内存中执行，执行的结果Response到客户端。
+
+JSP只在第一次执行的时候会转化为Servlet，以后的每次执行Web容器都是直接执行编译后的Servlet，所有JSP和Servlet只有第一次执行的时候不一样，JSP慢一点，以后的执行都是相同的。
+
+ 
+
+31、JSP如何处理运行时异常（run-time）exception？
+
+答：可是使用页面的errorPaga属性捕捉没有处理的运行时异常，然后自动转向到一个错误处理页面，代码如下：
+
+<%@page errorPage="错误页面URL"%>
+如果在页面请求时出现运行时异常时，以上代码会将代码转向到错误页面，在错误页面里面，可以通过以下代码定义这个页面是错误处理页面：
+
+<%@page isErrorPage="true"%>
+这样描述错误信息的Throwable对象就可以在错误页面里面访问到。
+
+ 
+
+32、如果JSP表单元素的值为空，如何避免null出现在页面上？
+
+答：可以写一个简单的函数对空值进行处理，判断值是否为空，如果为空就返回空字符串。实例代码如下：
+
+复制代码
+<%!
+   String blanknull(String e)
+  {
+      return (e==null)?"":s;
+  }  
+%>
+<%
+   <input type="text" name="username" value="<%=blanknull(username)%>"
+%>
+复制代码
+ 
+
+33、如何避免JSP页面自动生成session对象？为什么要这么做？
+
+ 答：在默认情况下，在对一个JSP页面发出请求时，如果session还没有建立，那么JSP页面会自动为请求创建一个session对象，但是session是比较消耗资源的，如果没有必要保持和使用session，就不应该创建session，例如一些只用来宣传产品的网页，往往没必要使用session来保存信息，可以在JSP中使用page指令进行设置，避免JSP页面为每个请求都自动创建session。实例代码如下：
+
+<%@page session="false"%>
+ 
+
+34、在servlet和JSP之间能共享session对象吗？
+
+答：Yes
+
+HttpSession session=request.getsession(false);
+session.getAttribute"变量名");   //获取保存在session容器中的变量
+ 
+
+35、使用JSP连接数据库连接缓冲池的最好的方法是什么？
+
+答：a、使用JDBC2.0中带有此服务的Driver
+
+      b、使用提供此服务的application server
+
+ 
+
+36、在JSP中如何写文本文件？
+
+答：使用PrintWriter对象：
+
+复制代码
+<%@page improt="java.io.*"%>
+<%
+      String str="HelloWorld!";
+      File file=new File("1.txt");
+      file.createNewFile();
+      try{
+           FileOutPutStream fops=new FileOutPutStream(file);
+           PrintWriter pw=new PrintWriter(fops);
+           pw.println(str);
+           pw.flush();
+           pw.close();
+}
+%>
+复制代码
+ 
+
+37、JSP的缺点？
+
+答：a、大多数的Servlet引擎不支持connection pooling。
+
+      b、Servlet引擎没有标准。
+
+      c、JSP与其他脚本语言的交互。
+
+      d、不易对Java程序进行调试。
+
+ 
+
+38、在JSP页面中如何删除一个cookie？
+
+答：
+
+<%
+     Cookie cookie=new Cookie("cookie名"，"cookie值");
+     cookie.setMaxAge(0);
+     cookie.setPath("/");
+     response.addCookie(cookie);
+%>
+ 
+
+39、如何实现servlet的单线程模式？
+
+答：在JSP中使用page指令进行设置，具体代码如下：
+
+<%@page isThreadSafe="false"%>
+ 
+
+40、HttpServlet类中主要方法有哪些？
+
+
+
+ 
+
+41、XML文档定义有几种形式？他们之间有何本质区别？解析XML文档有哪几种方式？
+
+答：a、两种形式:DTD、schema
+
+     b、本质区别：schema本身是xml的，可以被XML解析器解析（这也是从dtd上发展schema的根本目的。）
+
+     c、有DOM、SAX、STAX等。
+
+DOM：处理大型文件时性能下降的非常厉害。这个问题是由DOM的树结构所造成的，这种结构占用的内存较多，而且DOM必须在解析文件之前就把整个文档装入内存，适合对XML的随机访问；
+
+SAX：是事件驱动型的XML解析方式。它顺序读取XML文件，不需要一次全部装载这个XML文件。当遇到向文件开头、文件结束或者标签开头、标签结束时，它会触发一个事件，用户通过在其回调事件中写入处理代码来处理XML文件，适合对XML的顺序访问。
+
+STAX：Streaming API for XML
+
+ 
+
+42、你在项目中用到了XML技术的哪些方面？如何实现的？
+
+答：用到了数据存储、信息配置两方面。
+
+在做数据交换平台时，将不能数据源的数据组装成XML文件，然后将XML文件压缩打包加密后通过网络传送给接受者，接收解密与解压缩后再同XML文件中还原相关信息进行处理。
+
+在做软件配置时，利用XML可以和方便的进行，软件的各种配置参数都存储在XML文件中。
+
+ 
+
+43、EL表达式的功能，为什么要用EL表达式？（Expression Language）
+
+答：
+
+功能：
+
+a、从四个域对象中取出数据数据显示。
+
+b、取出请求参数数据显示。
+
+原因：
+
+在页面中用jsp脚本和jsp表达式来获取数据显示比较麻烦
+
+a、需要判断
+
+b、可能需要强转
+
+ 
+
+44、JSTL的功能，为什么要用JSTL？（JavaServer Pages Standard Tag Library）
+
+答：
+
+功能：主要用于基本输入输出、流程控制、循环、XML文件剖析、数据库查询及国际化和文字格式标准化的应用等。
+
+原因：在jsp页面做条件判断或者循环操作并输出时，比较费力。
+
+ 
+
+45、为什么要使用自定义标签？MyTag如何实现？
+
+答：
+
+原因：
+
+a、不想在jsp中编写java代码
+
+b、JSTL标签库不能满足实际项目的需求
+
+实现的流程：
+
+a、编写标签处理器类（SimpleTagSupport的实现类）
+
+     重写doTag()
+
+b、编写标签库文件（WEB-INF/xxx.tld）
+
+     整个文件的定义：<short-name>  uri
+
+     标签的定义：<tag>
+
+c、在jsp页面中使用标签：
+
+    导入标签库（xxx.tld）
+
+    使用标签
+
+ 
+
+46、说说自动登录功能的编码实现？
+
+答：a、登录功能是用session实现的，就是向session对象中保存当前用户的对象。
+
+      b、自动功能是用cookie实现的，就是登录时将用户的信息保存为持久cookie。
+
+      c、下次访问时，读取请求中如果有用户信息的cookie就可以自动登录。
+
+ 
+
+47、如何防止表单重复提交？
+
+答：使用session技术：
+
+a、在regist.jsp页面中生成一个为一个随机值，将其保存到session中，同时将其保存为表单的隐藏域的值。
+
+b、在处理注册的请求时，获取session中的值，获取请求参数的值，比较两者是否相同，如果相同说明不是重复提交，请求通过同时删除session中保存的的值，如果不相同则是重复提交，不能通过。
+
+ 
+
+48、Request对象的主要方法有哪些？
+
+答：
+
+setAttribute(String name,Object)：设置名字为name的request的参数值
+
+getAttribute(String name)：返回由name指定的属性值
+
+getAttributeNames()：返回request对象所有属性的名字集合，结果是一个枚举的实例
+
+getCookies()：返回客户端的所有Cookie对象，结果是一个Cookie数组
+
+getCharacterEncoding()：返回请求中的字符编码方式
+
+getContentLength()：返回请求的Body的长度
+
+getHeader(String name)：获得HTTP协议定义的文件头信息
+
+getHeaders(String name)：返回指定名字的request Header的所有值，结果是一个枚举的实例
+
+getHeaderNames()：返回所以request Header的名字，结果是一个枚举的实例
+
+getInputStream()：返回请求的输入流，用于获得请求中的数据
+
+getMethod()：获得客户端向服务器端传送数据的方法
+
+getParameter(String name)：获得客户端传送给服务器端的有name指定的参数值
+
+getParameterNames()：获得客户端传送给服务器端的所有参数的名字，结果是一个枚举的实例
+
+getParametervalues(String name)：获得有name指定的参数的所有值
+
+getProtocol()：获取客户端向服务器端传送数据所依据的协议名称
+
+getQueryString()：获得查询字符串
+
+getRequestURI()：获取发出请求字符串的客户端地址
+
+getRemoteAddr()：获取客户端的IP地址
+
+getRemoteHost()：获取客户端的名字
+
+getSession([Boolean create])：返回和请求相关Session
+
+getServerName()：获取服务器的名字
+
+getServletPath()：获取客户端所请求的脚本文件的路径
+
+getServerPort()：获取服务器的端口号
+
+removeAttribute(String name)：删除请求中的一个属性
+
+ 
+
+49、Tomcat根目录下有哪些文件？
+
+答：
+
+a、config：配置文件存放路径
+
+b、webapps：项目部署的目录
+
+c、bin Tomcat运行需要的脚本与jar的目录
+
+d、lib：运行项目时所需要的jar的目录
+
+e、word：部署项目的缓存目录
+
+f、temp：临时文件的存放目录
+
+g、logs：记录日志的目录
+
+ 
+
+50、什么是Tomcat，怎样启动停止，配置文件，日志文件的存储？
+
+答：Tomcat是一种web服务器，java编写的web项目可以部署在上面，用户在客户端请求时，都是将请求发到Tomcat上，Tomcat在将请求发到对应的项目上。
+
+启动Tomcat：
+
+在windows下：进入bin目录，双击startup.bat
+
+在Linux下：cd进入bin目录，sh startup.sh
+
+在开发工具Eclipse下：右键选择debug server或者run server
+
+停止Tomcat：
+
+在windows下：进入bin目录，双击shutdown.bat
+
+在Linux下：cd进入bin目录，sh shutdown.sh
+
+在开发工具Eclipse下：右键选择stop server
+
+配置文件在Tomcat的config目录下
+
+日志文件在Tomcat的logs目录下
+
+ 
+
+51、实例化servlet有几种方式？
+
+答：有两种方式
+
+a、第一次请求时，实例化servlet对象
+
+b、在web.xml文件中，在servlet标签中添加loadon-startup标签，tomcat启动时就会实例化servlet对象。
+
+ 
+
+52、JSP乱码如何解决？
+
+答：a、JSP页面乱码
+
+     <%@page contentType="text/html;charset=utf-8" %>
+
+     b、表单提交时出现乱码
+
+     request.setCharacterEncoding("utf-8");
+
+     c、数据库出现乱码
+
+     jdbc:mysql://localhost:3306:/user?useSSL=false&useUnicode=true&characterEncoding=utf-8;
+
+     其实我一般的处理的方法就是配置一个过滤器对每个JSP页面进行字符集处理。
+
+ 
+
+53、session和application的区别？
+
+答：a、两者的作用范围不同
+
+    session是用户级别的，application是web应用程序级别的，是一个全局作用域。
+
+    一个用户一个session，每个用户的session不同，用户所访问的网站多个页面共享同一个session。
+
+    一个web应用程序一个application对象，每个web应用程序的application对象不同，但是一个web应用程序的多个用户之间共享一个application。
+
+   b、生命周期不同
+
+   session：用户首次在网站中发出请求创建session，用户注销、离开网站或者关闭浏览器消亡。
+
+   application：启动web服务器创建，关闭web服务器销毁。
+
+ 
+
+54、在Eclipse中调试时，怎样查看一个变量的值？
+
+答:在要查看的变量前先设置断点，然后选中变量，右键选择debug as →Java Application，打开debug视图，这时在Variables窗口中可以看到变量当前的值。
+
+如果是局部变量，也可以在局部变量窗口中查看。要知道一个方法被调用的方法调用链，可以在方法栈中查看。
+
+ 
+
+55、你们公司使用的代码配置管理工具是什么？
+
+答：除了说以前使用的CVS,现在新项目使用SVN了，还简要说一下使用的过程，如果有可能，还说说仓库的概念和如何使用锁之类的细节。
+
+ 
+
+56、你们项目总金额多少，多少人开发，总共花了多少个月？
+
+答：像巴巴运动网这种规模的项目，可以说是4、5个人开发了四五个月，费用则是四五十万。按每人每月两万收入去计算就差不多了。
+
+ 
+
+57、什么是重量级？什么是轻量级？
+
+答：轻量级是指它的创建和销毁不需要消耗太多的资源，意味着可以在程序中经常创建和销毁session对象。
+
+     重量级意味着不能随意的创建和销毁它的实例，会占用太多的资源。
+
+ 
+
+58、如何从form表单中获取checkbox的值？
+
+答：可以在页面将checkbox的name属性设置相同，value属性取每个条目的id，在后台使用request.getParametervalues（"name"）;获取一组值。
+
+ 
+
+59、过滤器有哪些作用？
+
+答：a、可以验证客户是否来自可信的网络
+
+     b、可以对客户提交的数据进行重写编码
+
+     c、可以从系统里获得配置的信息
+
+     d、可以过滤掉客户某些不应该出现的词汇
+
+     e、验证客户是否登录
+
+     f、验证客户的浏览器是否支持当前的应用
+
+     g、可以记录系统的日志
+
+ 
+
+60、过滤器的用法？（对客户端的请求统一编码和对客户端进行验证）
+
+答：实现Filter接口，同时重写Filter接口的三个方法：
+
+     init(FilterConfig config)    用于获取FilterConfig对象
+
+    doFilter(ServletRequest request,ServeltResponse response,FilterChain chain)   进行过滤处理一些业务
+
+    destroy()    销毁Filter
+
+ 
+
+61、C/S与B/S的区别？
+
+答：有如下8个方面的不同：
+
+a、硬件环境的不同
+
+　　C/S：一般建立在专用的网络上，小范围里的网络环境，局域网之间再通过专门服务器提供连接和数据交换服务。
+　　B/S：建立在广域网之上的，不必是专门的网络硬件环境，有比C/S更强的适应范围，一般只要有操作系统和浏览器就行。
+b、对安全要求不同 
+　　C/S：一般面向相对固定的用户群，对信息安全的控制能力很强。一般高度机密的信息系统采用C/S结构适宜。
+　　B/S：建立在广域网之上，对安全的控制能力相对弱，可能面向不可知的用户。
+c、对程序架构不同 
+　　C/S：程序可以更加注重流程，可以对权限多层次校验，对系统运行速度可以较少考虑。
+　　B/S：对安全以及访问速度的多重的考虑，建立在需要更加优化的基础之上。
+d、软件重用不同 
+　　C/S：程序可以不可避免的整体性考虑，构件的重用性不如在B/S要求下的构件的重用性好.
+　　B/S：对的多重结构，要求构件相对独立的功能。
+e、系统维护不同  
+　　C/S：程序由于整体性，必须整体考察，处理出现的问题以及系统升级。
+　　B/S：构件组成，方面构件个别的更换,实现系统的无缝升级。
+f、处理问题不同 
+　　C/S：程序可以处理用户面固定，并且在相同区域，安全要求高需求，与操作系统相关。
+　　B/S：建立在广域网上，面向不同的用户群，分散地域，这是C/S无法作到的。 
+g、用户接口不同 
+　　C/S：多是建立的Window平台上，表现方法有限，对程序员普遍要求较高。
+　　B/S：建立在浏览器上，有更加丰富和生动的表现方式与用户交流；并且大部分难度减低,减低开发成本。
+h、信息流不同 
+　　C/S：程序一般是典型的中央集权的机械式处理，交互性相对低。
+　　B/S：信息流向可变化，B-B B-C B-G等信息、流向的变化，更像交易中心。
+
+ 
+
+62、什么是web容器？
+
+答：给处于其中的应用程序组件（JSP、Servlet）提供一个环境，是JSP、Servlet直接跟容器中的变量交互，不必关注其他系统问题。
+
+主要有web服务器来实现。例如：tomcat、weblogic、sphere、JBoss等。该容器提供的接口严格遵守J2EE规范中的web application标准。
+
+我们把遵守以上标准的web服务器叫做J2EE的web容器。
+
+ 
+
+63、什么是EJB容器？
+
+答：Enterprice Java Bean容器。它提供给运行在其中的组件EJB各种管理功能。只要满足J2EE规范的EJB放入该容器，马上就会被容器
+
+进行高效率的管理。并且可以通过现成的接口来获得系统级别的服务。例如：邮件服务、事务管理……
+
+ 
+
+64、开发中都用到了哪些设计模式？用在什么场合？
+
+答：每个模式都描述了一个在我们的环境中不断出现的问题，然后描述了该问题的解决方案的核心。通过这种方式，你可以无数次的使用
+
+哪些已有的解决方案，无需再重复相同的工作。主要用到了MVC设计模式。用来开发JSP/Servlet或者J2EE的相关应用。简单工厂模式等。
+
+ 
+
+65、说说你所熟悉的或听说过的J2EE中的几种常用模式？及对设计模式的一些看法。
+
+答：
+
+Session Facade Pattern：使用SessionBean访问EntityBean。 
+
+Message Facade Pattern：实现异步调用
+
+EJB Command Pattern：使用Command.JavaBeans取代SessionBean，显示轻量级访问。
+
+Data Transfer Object Factory：通过DTO Factory简化EntityBean数据提供特性
+
+Generic Attribute Access:通过AttributeAccess接口简化EntityBean数据提供特性
+
+Business Interface：通过远程（本地）接口和Bean类实现相同接口规范业务逻辑一致性
+
+EJB架构的设计好坏将直接影响系统的性能、可扩展性、可维护性、组件可重用性及开发效率。项目越复杂，项目队伍余越庞大，则越能体现良好设计的重要性。
+
+ 
+
+66、J2EE常用的设计模式？说明工厂模式。
+
+答:Java中一共有23中设计模式：
+
+Factory（工厂模式）、Builder（建造模式）、Factory Method（工厂方法模式）、ProtoType（原始模型模式）、Singleton（单例模式）、
+
+Facade（门面模式）、Adapter（适配器模式）、Bridge（桥梁模式）、Composite（合成模式）、Decorator（装饰模式）、
+
+FlyWeight（享元模式）、Proxy（代理模式）、Command（命令模式）、Interpreter（解释器模式）、Visitor（访问者模式）、
+
+Iterator（迭代子模式）、Mediator（调停者模式）、Memento（备忘录模式）、Observer（观察者模式）、State（状态模式）、
+
+Strategy（策略模式）、Template Method（模板方法模式）、Chain Of Responsibility（责任链模式）、
+
+工厂模式：工厂模式是一种经常被使用到的模式，根据工厂模式实现的类可以根据提供的数据生成一组类中某个类的实例，通常一组类中有一个公共的抽象父类并且实现了相同的方法，但是这些方法针对不同的数据进行了不同的操作。首先需要定义一个基类，该类的子类通过不同的方法实现了基类中的方法。然后定义一个工厂类，工厂类可以根据条件生成不同的子类实例。当得到子类的实例后，开发人员可以调用基类中的方法而不必考虑到底返回的是哪一个子类的实例。
+
+ 
+
+67、EJB2.0有哪些内容？分别用在什么场合？EJB2.0和EJB2.1的区别？
+
+答：规范内容包括Bean提供者，应用程序装配者，EJB容器，EJB配置工具，EJB服务提供者，系统管理员。这里面，EJB容器是EJB之所有能够运行的核心。
+
+EJB容器管理着EJB的创建，撤消，激活，去活，与数据库的连接等等重要的核心工作。
+
+ 
+
+68、EJB与JAVA BEAN的区别？ 
+
+答:Java Bean 是可复用的组件，对Java Bean并没有严格的规范，理论上讲，任何一个Java类都可以是一个Bean。但通常情况下，
+
+由于Java Bean是被容器所创建（如Tomcat)的，所以Java Bean应具有一个无参的构造器，另外，通常Java Bean还要实现
+
+Serializable接口用于实现Bean的持久性。Java Bean实际上相当于微软COM模型中的本地进程内COM组件，它是不能被跨进程访问的。
+
+Enterprise Java Bean 相当于DCOM，即分布式组件。它是基于Java的远程方法调用（RMI）技术的，所以EJB可以被远程访
+
+（跨进程、跨计算机）。但EJB必须被布署在诸如Webspere、WebLogic这样的容器中，EJB客户从不直接访问真正的EJB组件，
+
+而是通过其容器访问。EJB容器是EJB组件的代理，EJB组件由容器所创建和管理。客户通过容器来访问真正的EJB组件。
+
+  
+
+69、EJB的基本架构
+
+复制代码
+//Remote Interface接口的代码 
+package Beans; 
+import javax.ejb.EJBObject; 
+import java.rmi.RemoteException; 
+public interface Add extends EJBObject { 
+//some method declare 
+} 
+//Home Interface接口的代码 
+package Beans; 
+import java.rmi.RemoteException; 
+import jaax.ejb.CreateException; 
+import javax.ejb.EJBHome; 
+public interface AddHome extends EJBHome { 
+//some method declare 
+} 
+//EJB类的代码 
+package Beans; 
+import java.rmi.RemoteException; 
+import javax.ejb.SessionBean; 
+import javx.ejb.SessionContext; 
+public class AddBean Implements SessionBean { 
+//some method declare 
+} 
+复制代码
+ 
+
+ 70、存储过程和函数的区别
+
+答：存储过程是用户定义的一系列sql语句的集合，涉及特定表或者其他对象的任务，用户可以调用存储过程，而函数通常是数据库
+
+已定义的方法，它接受参数并返回某种类型的值并且不涉及特定用户表。
+
+ 
+
+71、什么是事务？
+
+答:事务时作为一个逻辑单元执行的一系列操作，一个逻辑工作单元必须有四个属性，称为ACID（原子性、一致性、隔离性和持久性）属性，
+
+只有这样才能成为一个事务：
+
+原子性：事务必须是原子工作单元，对于其数据修改，要么全都执行，要么全都不执行。
+
+一致性：事务在完成时，必须使所有的数据保持一致的状态。在相关数据库中，所有规则都必须应用于事务的修改，以保持所有数据的完整性。事务结束时，所有的内部数据结构（如B树索引或双向链表）都必须是正确的。
+
+隔离性：由并发事务所做的修改必须与任何其他并发事务所做的修改隔离。事务查看数据时数据所处的状态，要么是另一并发事务修改它之前
+
+的状态，要么是另一并发事务修改它之后的状态，事务不会查看中间状态的数据。这称为可串行性，因为它能够重新装载起始数据，并且重播
+
+一系列事务，以使数据结束时的状态与原始事务执行的状态相同。
+
+持久性：事务完成后，它对于系统的影响是永久性的。该修改即使出现系统故障也将一直保持。
+
+ 
+
+72、触发器分为事前触发和事后触发，两种触发有什么区别？语句级触发和行级触发有什么区别？
+
+答：事前触发运行于触发事件发生之前，而事后触发运行于触发事件发生之后。通常事前触发器可以获取事件之前和新的字段值。
+
+语句级触发可以在语句执行前或后执行，而行级触发在触发器所影响的每一行触发一次。
+
+ 
+
+73、EJB容器提供的服务
+
+答：主要提供声明周期管理、代码产生、持续性管理、安全、事务管理、锁和并发行管理等服务。
+
+ 
+
+74、EJB的三个角色和三个对象
+
+答：角色：EJB角色主要包括Bean开发者、应用组装者、部署者、系统管理员、EJB容器提供者、EJB服务器提供者。
+
+     对象：Remote（Local）接口、Home（LocalHome）接口、Bean类
+
+ 
+
+75、EJB的几种类型？
+
+答：会话（Session） Bean，实体（Entity）Bean、消息驱动的（Message Driven）Bean
+
+     会话Bean又可分为有状态（Stateful）和无状态（Stateless）
+
+     实体Bean可分为Bean管理的持续性（BMP）和容器管理的持续性（CMP）两种
+
+ 
+
+76、Bean实例的生命周期
+
+答：对于Stateless Session Bean、Entity Bean、Message Driven Bean一般存在缓冲池管理，而对于Entity Bean和
+
+Stateful Session Bean存在Cache管理，通常包含创建实例，设置上下文、创建EJB Object（create）、业务方法调用、
+
+remove等过程，对于存在缓冲池管理的Bean，在create之后实例并不从内存清除，而是采用缓冲池机制不断重用实例；
+
+而对于存在Cache管理的Bean，则通过激活或去激活机制保持Bean的状态并限制内存中实例数量。
+
+ 
+
+ 77、激活机制
+
+答：以Stateful Session Bean为例：其Cache大小决定了内存中可以同时存在的Bean实例的数量，根据MRU或NRU算法，
+
+实例在激活和去激活状态之间迁移，激活机制是当客户端调用某个EJB实例业务方法时，如果对应的EJB Object发现自己
+
+没有捆绑对应的Bean实例，则从其去激活Bean存储中（通过序列化机制存储实例）回复（激活）此实例。状态变迁前会
+
+调用对应的EJB Active 和EJB Passivate方法。
+
+ 
+
+ 78、remote接口和home接口的作用
+
+答：remote接口中定义了业务方法，用于EJB用户调用业务方法。
+
+     home是EJB工厂用于创建、移除和查找EJB实例
+
+ 
+
+79、客服端调用EJB对象的几个基本步骤
+
+答:a、设置JNDI服务工厂以及JNDI服务地址系统属性
+
+   b、查找home接口
+
+   c、从home接口调用create方法创建remote接口
+
+   d、通过remote接口调用其业务方法

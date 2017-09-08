@@ -1,0 +1,232 @@
+一、 选择题
+1. 表单中的数据要提交到到哪里处理由表单的（ C）属性指定。
+A.method     B. name    C. action    D. 以上都不对 
+2. 要运行JSP程序，下列说法不正确的是（ B ）
+A. 服务器端需要安装Servlet容器，如Tomcat等。
+B. 客户端需要安装Servlet容器，如Tomcat等。
+C. 服务器端需要安装JDK。
+D. 客户端需要安装浏览器，如IE等。
+3. 当发布Web应用程序时，通常把Web应用程序的目录及文件放到Tomcat的（  C）目录下。
+A.work     B. temp    C. webapps    D. conf 
+4. 下面有关HTTP协议的说法不正确的是（ D ）
+A. HTTP协议是Web应用所使用的主要协议
+B. HTTP协议是一种超文本传输协议（Hypertext Transfer Protocol），是基于请求/响应模式的
+C. HTTP是无状态协议
+D. HTTP的请求和响应消息如果没有发送并传递成功的话，HTTP可以保存已传递的信息
+5. 下面有关Servlet的描述错误的是（C  ）。
+A. 一个Servlet就是Java中的一个类
+B. Servlet是位于Web 服务器内部的服务器端的Java应用程序
+C. Servlet可以由客户端的浏览器解释执行
+D. 加载Servlet的Web服务器必须包含支持Servlet的Java虚拟机    
+6. 下面不属于JSP指令的是：（ B ）
+A. include   B. import    C. page    D. taglib
+7. （ B ）动作用于转向另一个页面。
+A. next         B. forward         C. include           D. param
+8. 在项目中已经建立了一个JavaBean，该类为：bean.Student，该bean具有name属性，则下面标签用法正确的是：（ C ）
+A．<jsp:useBean id="student" class="Student" scope="session">
+</jsp:useBean>
+B．<jsp:useBean id="student" class="Student" scope="session">
+</jsp:useBean>
+C．<jsp:useBean id="student" class="bean.Student" scope="session">
+</jsp:useBean>
+D．<jsp:getProperty name="name" property="student"/>
+9. 下列选项中，（  B）可以准确地获取请求页面的一个文本框的输入（文本框的名称为name）。
+A. request.getParameter（name） 
+B. request.getParameter（”name”） 
+C. request.getParameterValues(name)
+D. request.getParameterValues(“name”)
+10. 使用response对象进行重定向时，使用的方法是（ C ）。
+A. getAttribute    B. setContentType   
+ C. sendRedirect     D. setAttribute
+11. session对象中用于设定指定名字的属性值，并且把它存储在session对象中的方法是（ A ）。
+A. setAttribute    B. getAttributeNames  
+C. getValue      D. getAttribute
+12. 在application对象中用（B  ）方法可以获得application对象中的所有变量名。
+A. getServerInfo     B. nextElements()  
+C. removeAttribute   D. getRealPath
+13. 有关struts 2的说法不正确的是（ B ）
+A. Struts是一个用于简化MVC框架（Framework）开发的Web应用框架
+B. 应用Struts 2不需要进行配置
+C. Struts 2 含有丰富的标签
+D. Struts2采用了WebWork的核心技术
+14. Web应用的数据共享方式不包括（ C ）。
+A.基于请求的共享   B.基于会话的共享
+C.基于页面的共享   D.基于应用的共享
+15. 要在页面上输出2+3=${2+3}，则对应的程序代码应为（A  ）。
+A. 2+3=\${2+3}
+B. 2+3=${2+3}    
+C. 2+3=/${2+3}    
+D. 以上都不对 
+16. 下面有关EL中“.“和“[ ]“两种存取运算符的说法不正确的是（ C  ）
+A. 两者在某些情况下是等效的
+B. “[ ]“运算符主要用来访问数组、列表或其他集合
+C. 如果要动态取值时，两者都可以实现
+D. 当要存取的属性名称中包含一些特殊字符，如.或?等并非字母或数字的符号，就一定要使用“[ ]“ 
+17. 要使用JSTL的核心标签库，需要在JSP源文件的首部加入如下声明语句（ A ）
+A. <%@ taglib prefix="c" 
+uri="http://java.sun.com/jsp/jstl/core" %>
+B. <%@ taglib prefix=”x” 
+uri=”http://java.sun.com/jsp/jstl/xml”%>
+C. <%@ taglib prefix=”fmt” 
+uri=”http://java.sun.com/jsp/jstl/fmt”%>
+D. <%@ taglib prefix=”sql”
+uri=”http://java.sun.com/jsp/jstl/sql”%>
+18. 以下（  B）标签用于实现循环功能，类似与Java语句中的for循环。
+A.  <c:set>           B. <c:forEach>  
+B.  <c:Tokens>        D. <c:import> 
+19. 以下URL中语法不正确的是（  D ）
+A.http://www.bta.net.cn:80/software/home.html
+B.telnet://bdysseu.bbb.com:70
+C.ftp://ftp.btbu.edu.cn
+D.www0.btbu.edu.cn 
+20. page指令用于定义JSP文件中的全局属性，下列关于该指令用法的描述不正确的是：（ D ）
+A. <%@ page %>作用于整个JSP页面。  
+B. 可以在一个页面中使用多个<%@ page %>指令。
+C. 为增强程序的可读性，建议将<%@ page %>指令放在JSP文件的开头，但不是必须的。
+D. <%@ page %>指令中的属性只能出现一次。
+第二题：填空。
+1． 在编写Servlet时，需要继承       HttpServlet       类，在Servlet中声明doGet()和doPost()需要       HttpServletRequest      和       HttpServletResponse       类型的两个参数。
+2． jsp主要内置对象有：     application        、exception、 pageContext、cookie  request 、     response            、____session_     __、out、config、page。
+3． 使用useBean动作标记的时候scope属性有4种选项，作用范围由小到大是______page___、___request______、___session______、_____application____，其中____session_____是指当关闭浏览器的时候这个javabean失效， ____ _application____是指当关闭服务器的时候这个javabean失效。
+4． 三种常用的动态网页技术是_____asp____、____jsp_____、___php______，简称3P技术。
+5． JSP利用JDBC操作数据库的步骤：（1）加载驱动程序，调用____forName()_______将自动加载驱动程序类；（2）建立连接，若连接字符串为：
+String url = "jdbc:mysql://localhost/" + dbName +"?user=" +userName
+ +"&password=" +userPwd，其中dbName、userName和userPwd 3个分别代表     数据库名   、数据库的    用户名    和    密码      ，（3）建立StateMent；(4) 、执行sql语句，其中，查询数据库里的表内容是Statement接口使用__ _execute_________方法；（5）关闭数据库。
+三简答题。
+1． Tomcat服务器的默认端口是多少？怎样修改tomcat的端口
+答：Tomcat服务器的默认端口是8080；在tomcat下的\conf\server.xml中的Connector元素里的<Connector port=”8080”.....>把8080改成你想要的端口即可。
+2．什么是cookie? cookie有什么作用？。
+答：Cookie 是一小段文本信息，伴随着用户请求和页面在 Web 服务器和浏览器之间传递。用户每次访问站点时，Web 应用程序都可以读取 Cookie 包含的信息。
+Cookie 为 Web 应用程序保存用户相关信息提供了一种有用的方法。例如，当用户访问您的站点时，您可以利用 Cookie 保存用户首选项或其他信息，这样，当用户下次再访问您的站点时，应用程序就可以检索以前保存的信息。
+3. 简述JSP中动态include与静态include的区别？
+答：动态INCLUDE用jsp:include动作实现，<jsp:include page="included.jsp" flush="true" /> 它总是会检查所含文件中的变化，适合用于包含动态页面，并且可以带参数；
+静态INCLUDE用include伪码实现。定不会检查所含文件的变化，适用于包含静态页面。
+<% @ include file="included.htm" %>
+4. 简述表单中POST和GET的区别。
+答：
+GET方法
+资源类型 ：主动的或被动的 
+数据类型 :文本 
+数据量 :最多255个字符。尽管HTTP协议并没有限制查询串的长度，某些浏览器和web服务器可能不能处理超过255个字符的数据。 
+可见性 :数据是URL的一部分，在浏览器的URL地址栏中用户可见。 
+缓存 :数据可以在浏览器的URL历史中缓存。
+POST方法
+目标资源类型 ：主动的
+数据类型 :文本或二进制数据  
+数据量 :没有限制 。 
+可见性 :数据不是URL的一部分而是作为请求的消息体发送，因此在浏览器的URL地址栏中对用户不可见。 。 
+缓存 :数据不能在浏览器的URL历史中缓存。
+5、MVC中的M、V、C各指的是什么？请述其各自的作用。
+答：M：Model（模型），在j2ee开发中扮演数据封装相关的角色（像javabean）；
+V：View(视图)，在j2ee开发中扮演数据显示相关的角色（像jsp,html文件）；
+C：Controller(控制器)，在j2ee开发中扮演数据控制相关的角色（像Servlet、Action等）。
+6、列举JSP的主要优点。
+答：提高代码的可复用性、将HTML代码进行分离、程序利于开发维护。
+7、简称JSP的执行过程。
+答：首先，由客户端浏览器向Web服务器提出访问JSP页面的请求（Request）,然后
+由JSP引擎负责将JSP转换成Servlet，产生的servlet经过编译后生成类文件，然后再把类文件加载到内存执行。最后，由Web服务器将执行结果即（Response）给客户端浏览器。
+8、JSP的动作标签有哪几个？
+答：1、jsp:incclude 在当前页面中包含另一个页面的输出；
+2、jsp:forward  将请求转发到指定的页面；
+3、jsp:useBean 查找或创建一个javaBeans对象；
+4、jsp：setProperty  设置javaBeans对象的属性值；
+5、jsp：getProperty  返回javaBeans对象的属性值；
+6、jsp：plugin  在JSP页面中嵌入一个插件。
+9、<jsp:forward>与response.sendRedirect()实现页面转向有什么区别？
+答：<jsp:forword>转向只在服务器端进行，不显示地址。
+response.sendRedirect()重新发送请求，会显示地址。
+10、简述Servlet的生命周期？
+答：servlet有良好的生存期定义，包括加载和实例化、初始化、处理请求以及服务结束。
+Web容器加载servlet，生命周期开始，通过调用servlet的init（）方法进行servlet的初始化
+。通过调用service（）方法实现，根据请求的不调用不同doXX（）方法。结束服务，web容器调用servlet的destroy（）方法。
+11、较JSP而言，Servlet有什么优点，有什么缺点？
+答：优点是响应客户端的请求，根据请求动态响应，最大的优点做为一个服务，控制程序的流向，过滤等。mvc中，控制就是servlet。
+缺点：Servlet在表示逻辑上对于视图的表示相对于JSP麻烦太多，在负责显示工作完成并生成页面上，JSP更优。
+12、简述采用JDBC访问数据库的步骤。
+答：1、加载对应数据库驱动，一般用反射Class.forName(String driverName);
+2、创建连接通过DriverManager.getConnection(url,userName,passwd);
+3、获取statement对象，通过statement对象执行sql语句；
+4、如果是查询则返回结果集，贮存于ResultSet；
+5、如果关闭事物自动提交要提交事物；
+6、最后，关闭所有连接，自里往外关闭。
+四、编程题
+第一题：
+第一个Servlet1文件，读取一个请求参数test（字符串），存放在请求范围内，然后把请求转发给
+第二个Servlet2.。第二个Servlet2文件（url为output），向客户输出Servlet1的结果。根据注释补充下列代码。（15分）
+public class Servlet1 extends HttpServlet {
+  public void service(ServletRequest request,ServletResponse response)
+throws ServletException, IOException {
+response.setContentType=(“text/html;charset=gbk”);
+PrintWriter out=response.getWriter();
+//读取请求参数
+  __String test=request.getParameter("test");______ ;(3分)
+//在request对象中添加 test属性
+__request.setAttribute("test", test);___(3分)
+/*把请求转发给Servlet2 */
+RequestDispatcher dispatcher = 
+request.getRequestDispatcher("/output");_____
+__dispatcher.forward(request, response);__  (4分)
+  }
+}
+public class Servlet2 extends HttpServlet {
+  public void service(ServletRequest request,ServletResponse response)
+throws ServletException, IOException {
+response.setContentType=(“text/html;charset=gbk”);
+PrintWriter out=response.getWriter();
+  //读取请求范围内Servlet1的test
+  __String temp=request.getParameter("test");____(3分)
+  //向客户端输出test
+   __out.println("<h1>"+temp+"</h1>");____(2分)
+  }
+}
+2、第二题：
+1、编写一个简单的JavaBean，通过EL的存取运算符访问其属性。
+答案：文件userLogin.java定义了一个用户Bean，包含姓名、密码和电子邮件3个属性，其代码如下：
+package bean;
+public class userLogin {
+private String userName;
+private String （1）password   ; 
+private String email;
+public userLogin() {
+userName = "李平";
+password = "123";
+email = "liping@sohu.com";
+}
+public void setuserName(String userName) {
+this.userName = userName;
+}
+public String getuserName() {
+return this.userName;
+}
+public void setpassword(String password) {
+this.password = password;
+}
+public String getpassword() {
+return this.password;
+}
+public void setemail(String email) {
+this.email = email;
+}
+public String getemail() {
+return this.email;
+}
+}
+文件accessBean.jsp使用EL的存取运算符获取JavaBean的属性，其代码如下：
+<%@ page contentType="text/html; charset=gb2312"%>
+（2）<%@ page import ="bean.userLogin" %>                                    
+<jsp:useBean id="user" class="bean.userLogin" scope="session">
+</jsp:useBean>
+<html>
+<head>
+<title>使用存取运算符访问JavaBean的属性</title>
+</head>
+<body>
+<!--通过EL存取运算符访问JavaBean的属性-->
+用户名：(3) ${user.username}
+<br>
+密码：(4)${user.password}        
+<br>
+                电子邮箱：(5)  ${user.email} 
+                <br>
+         </body>
+</html>

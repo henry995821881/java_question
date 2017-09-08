@@ -1,0 +1,175 @@
+在tomcat上发布javaweb应用时的默认目录是__webapps___目录。
+
+2、javaweb应用的部署描述符是指   web.xml__ 文件。
+
+3、在tomcat中访问helloapp应用的login.html文件时，在浏览器地址栏应写的url为：__http://localhost:8080/helloapp/login.html___。
+
+4、Servlet容器启动每一个web应用时，都会为它创建一个唯一的___ServletContext__对象，该对象和web应用有相同的生命周期。
+
+5、请求转发源组件的响应结果___不会__发送到客户端，包含__会__发送到客户端。（填“会”或“不会”）
+
+6、jsp中实现请求转发的标记为：_________。
+
+7、在JSP中，  request  内置对象代表请求消息， response 内置对象代表响应消息，___session_内置对象代表会话。
+
+8、如果使用第四类jdbc驱动器连接数据库，jar文件的存放位置为“web应用/_WEB-INF /lib_______”。
+
+9、Servlet容器为每一个HttpSession对象分配一个唯一标识符，叫做___SessionID___。
+
+10、javaweb在mvc设计模式下，___javabean___是模型，___jsp是视图，__servlet__是控制器。
+
+二、 选择题（每题2分，共30分）
+
+1、下面哪一个选项不是http响应的一部分?（  c ）
+
+ a) 响应头
+
+b) 响应正文
+
+c) 协议版本号
+
+d) 状态行
+
+  2、http请求及响应的正文部分可以是任意格式的数据，要保证接收方能看得
+
+懂发送方发送的数据，http协议采用( d  )协议来规范正文的数据格式 ?
+
+a) FTP
+
+b) TCP
+
+c) HTTP
+
+d) MIME
+
+3、Servlet API 由哪两个包组成?（两个答案）（ ac   ）
+
+a) javax.servlet
+
+b) javax.servlet.jsp
+
+c)  javax.servlet.http
+
+d) java.servlet
+
+4、一个servlet的生命周期不包括（ b  ）方法?
+
+a)  init()方法
+
+b)  invalidate()方法
+
+c)  service()方法
+
+d)  destroy()方法
+
+5、HttpServletRequest对象的（  c ）方法能够获取一个表单参数的值：
+
+a)  getQuaryString()
+
+b)  getPathInfo()
+
+c)  getParameter()
+
+d)  getAttribute()
+
+6、下面对servlet中重定向说法描述错误的是（ d ）
+
+a) 使用的是HttpServletResponse接口的sendRedirect()方法
+
+b) 源组件的响应结果不会发送给客户端
+
+c)  sendRedirect()方法后的代码仍会执行
+
+d) 源组件和目标组件共享ServletRequest对象
+
+        7、jsp指令不包括（ c  ）
+
+a)  page指令
+
+b)  taglib指令
+
+c)  import指令
+
+d)  include指令
+
+8、jsp中java表达式的语法格式为：（a ）
+
+a) 
+
+b) 
+
+c)  
+
+d)  
+
+        9、可以执行请求转发的操作是（d ）。
+
+a)   jsp中response内置对象的sendRedirect()方法
+
+b)   标记
+
+c)   RequestDispatcher对象的include()方法
+
+d)   RequestDispatcher对象的forward()方法
+
+10、（  d  ）内置对象可以处理jsp页面运行中的错误或者异常
+
+a)  pageContext
+
+b)  page
+
+c)  session
+
+d)  exception
+
+11、下面对jdbc api描述错误的是（  d  ）
+
+a)  DriverManager接口的getConnection()方法可以建立和数据库的连接
+
+b)  Connection接口的createStatement()方法可以创建一个Statement对象
+
+c)  Statement接口的executeQuery()方法可以发送select语句给数据库
+
+d)  ResultSet接口表示执行insert语句后得到的结果集
+
+12、JavaBean的scope取什么值可使该javabean被多个用户共享，即和web
+
+应用有相同的生命周期?（  d  ）
+
+a)   page
+
+b)   request
+
+c)   session
+
+d)   application
+
+13、下面哪个不是JSP中和javabean相关的标记?（  b ）
+
+a)   
+
+b)   
+
+c)   
+
+d)   
+
+14、以下关于EL和JSTL说法错误的是?（ d   ）
+
+a)   EL是一种简洁的数据访问语言
+
+b)   EL表达式基本形式：${var}
+
+c)   JSTL的全称是JavaServer Pages Standard Tag Library
+
+d)   JSTL只有一个Core核心标签库
+
+15、所有的servlet过滤器类都必须实现（   a  ）接口。
+
+a)   javax.servlet.Filter
+
+b)   javax.servlet.ServletConfig
+
+c)   javax.servlet.ServletContext
+
+d)   javax.servlet.Servlet
